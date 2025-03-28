@@ -97,6 +97,8 @@ subscriptionSchema.pre("save", function (next) {
   if (this.renewalDate < new Date()) {
     this.status = "expired";
   }
+
+  // Move on to next step, creating model
   next();
 });
 
