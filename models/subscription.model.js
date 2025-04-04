@@ -57,7 +57,6 @@ const subscriptionSchema = new mongoose.Schema(
     },
     renewalDate: {
       type: Date,
-      required: true,
       validate: {
         validator: function (value) {
           return value > this.startDate;
@@ -102,5 +101,5 @@ subscriptionSchema.pre("save", function (next) {
   next();
 });
 
-const Subcription = mongoose.model("Subscription", subscriptionSchema);
-export default Subcription;
+const Subscription = mongoose.model("Subscription", subscriptionSchema);
+export default Subscription;

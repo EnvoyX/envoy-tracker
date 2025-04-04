@@ -1,5 +1,5 @@
 import { Router } from "express";
-import authorized from "../middlewares/auth.middleware.js";
+import authorize from "../middlewares/auth.middleware.js";
 import { getUser, getUsers } from "../controllers/user.controller.js";
 
 const userRouter = Router();
@@ -8,7 +8,7 @@ const userRouter = Router();
 // GET /users/:id -> get user by id
 
 userRouter.get("/", getUsers);
-userRouter.get("/:id", authorized, getUser);
+userRouter.get("/:id", authorize, getUser);
 
 userRouter.post("/", (req, res) => {
   res.send({ title: "CREATE new users" });
